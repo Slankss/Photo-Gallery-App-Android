@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -45,7 +46,7 @@ import com.okankkl.photogallery.presentation.screens.gallery.components.ImageBox
 import com.okankkl.photogallery.utils.PermissionHandler.checkWritePermission
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun GalleryScreen(
     modifier: Modifier = Modifier,
@@ -140,17 +141,17 @@ fun GalleryScreen(
                         }
                 )
             }
+
             LazyColumn(
                 state = listState,
-                modifier = modifier.fillMaxWidth(),
-                verticalArrangement = Arrangement.spacedBy(5.dp),
+                modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 viewState.value.photos?.let { photos ->
                     itemsIndexed(photos) { index,photo ->
                         ImageBox(
                             photo = photo,
-                            onClick = { photo ->
+                            onClick = {
                                 photoDialogVisible = true
                                 selectedPhoto = photo
                             }
