@@ -3,10 +3,7 @@ package com.okankkl.photogallery.presentation.screens.gallery.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -28,13 +25,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import com.okankkl.photogallery.R
-import kotlinx.coroutines.Job
 
 @Composable
 fun SearchBar(
@@ -48,7 +43,7 @@ fun SearchBar(
       modifier = modifier
           .height(50.dp)
           .clip(CircleShape)
-          .background(MaterialTheme.colorScheme.tertiary),
+          .background(Color.Gray.copy(alpha = 0.2f)),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ){
